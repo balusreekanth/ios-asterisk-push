@@ -1,0 +1,5 @@
+{
+    "require": {
+        "edamov/pushok": "^0.11.2"
+    }
+}

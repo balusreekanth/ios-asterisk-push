@@ -1,0 +1,67 @@
+{
+    "name": "edamov/pushok",
+    "type": "library",
+    "description": "PHP client for Apple Push Notification Service (APNs) - Send push notifications to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key) or certificate-based authentication",
+    "keywords": [
+        "apns",
+        "push notifications",
+        "p8",
+        "php apns"
+    ],
+    "homepage": "https://github.com/edamov/pushok",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arthur Edamov",
+            "email": "edamov@gmail.com",
+            "homepage": "https://github.com/edamov",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-curl": "*",
+        "lib-curl": ">=7.46.0",
+        "ext-openssl": "*",
+        "lib-openssl": ">=1.0.2.5",
+        "ext-json": "*",
+        "ext-xml": "*",
+        "ext-intl": "*",
+        "web-token/jwt-signature-algorithm-ecdsa": "^2.0",
+        "web-token/jwt-key-mgmt": "^2.0"
+    },
+    "require-dev": {
+        "ext-xdebug": "*",
+        "php-coveralls/php-coveralls": "^2.0",
+        "phpunit/phpunit": "^8.4",
+        "squizlabs/php_codesniffer": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pushok\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "edamov\\pushok\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2"
+        }
+    }
+}

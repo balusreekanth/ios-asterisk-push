@@ -3,13 +3,13 @@
 
 ### Background:
 
-##### One may find creating a  push notifcation service  for general purpose applications is pretty easy. But configuring a functional push notification service for SIP client in conjunction with Asterisk based PBX system is not that straight forward .
+##### One may find creating a  push notifcation service  for general purpose applications is effortless. But configuring a functional push notification service for SIP client in conjunction with Asterisk based PBX system is not that straight forward .
 ##### After a long search for a usable push notification service for FreePbx all over internet and could not able to accumulate everything needed to make a fully functional Push Notification service , I decided to write simple scripts using shell and php 
 
 ### Prerequisites
 
 ##### 1.[edamov/pushok](https://github.com/edamov/pushok)
-This will connect to Apple APN servers and send notifications . Ofcourse you can use any other librray or even you can write your own scripts or simply use curl. Remember Apple needs a persistant connection to APNs servers or it may flag your curl request as spam bots.
+This will connect to Apple APN servers and send notifications . Ofcourse you can use any other library or you can even write your own scripts or simply use curl. Remember Apple needs a persistant connection to APNs servers or it may flag your curl request as spam bots.
 
 ##### 2.PHP, Mysql and your favourite shell
 There is one [shell script](https://github.com/balusreekanth/ios-asterisk-push/blob/master/asterisk_reg.sh) in this repository to check asterisk logs for registartion requests and save the Registration contact information in database .
@@ -26,7 +26,7 @@ Once we get push tokens into database , we just modify extensions asterisk confi
 
 ##### STEP 1.make sure you have php, mysql and asterik system installed 
 
-##### STEP 2. clone this repository to /var/lib/asterisk/pushscripts  or any other directory of your choice but make sure scripts have executable permissions by asterisk.Please do not use your web dircetory as we are using php cli to run script from extesnions So you can rename push.php to just push.
+##### STEP 2. clone this repository to /var/lib/asterisk/pushscripts  or any other directory of your choice but make sure scripts have executable permissions by asterisk. Please do not use your web dircetory as we are using php cli to run script from extesnions So you can rename push.php to just push.
 
 ##### STEP 3 move asterisk_reg.sh to /usr/local/bin
 
@@ -36,7 +36,7 @@ Once we get push tokens into database , we just modify extensions asterisk confi
 ##### and define key path AuthKey_XXXXXX.p8 .
  you can obtain p8 key,teamid, keyid details from apple developer portal.copy p8 key in the directory which you defined in push.php
  
-##### STEP 6. move [push.service](https://github.com/balusreekanth/ios-asterisk-push/blob/master/push.service) to /etc/systemd/system/  inorder to run the script automatically at boot . You can skip this step if you are using monit and cofnigure monit accordingly .
+##### STEP 6. move [push.service](https://github.com/balusreekanth/ios-asterisk-push/blob/master/push.service) to /etc/systemd/system/  inorder to run the script automatically at boot . You can skip this step if you are using monit and cofnigured monit accordingly .
 
 You can run commands to enable and start the service
 
@@ -48,7 +48,7 @@ You can run commands to enable and start the service
 
 *systemctl enable push.service*
 
-##### STEP 7. Now configure your extensions configuration file to check if teh destination extension exist in our database . If it exist we send call to push context else we process the call normally.
+##### STEP 7. Now configure your extensions configuration file to check if the destination extension exist in our database . If it exists, we do send call to push context else we process call normally.
 
 exntsions configuration file may look differnt from system to system depending on your asterisk distro .Below a smaple configuration is given for reference.
 

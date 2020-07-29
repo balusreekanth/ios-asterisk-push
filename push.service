@@ -1,0 +1,16 @@
+
+#copy this content to /etc/systemd/system/push.service"
+#
+[Unit]
+Description=asterisk_reg
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/local/bin/asterisk_reg.sh
+TimeoutStartSec=0
+Restart=always
+StartLimitInterval=0
+
+[Install]
+WantedBy=default.target

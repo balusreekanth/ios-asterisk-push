@@ -6,6 +6,10 @@ DB_PASSWD=""
 DB_NAME="pushdb"
 DB_TABLE="pushdb_pushkeys"
 
+#One of the users suggested using commented lines for better performance
+#tail -Fn0 /var/log/asterisk/full | grep --line-buffered "Registered SIP" | \
+#while read line ;
+
 tail -Fn0 /var/log/asterisk/full | \
 while read line ;
  do

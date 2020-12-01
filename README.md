@@ -76,6 +76,9 @@ exntsions configuration file may look differnt from system to system depending o
 
 - Write your comments and issues in issues section of this repository . Or you can mail at balusreekanthATgmailDOTcom
 
+# Would you like to improve this ?
+- I Love to  see pull requests to improve this script further . 
+
 
 ## Donate
 

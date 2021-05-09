@@ -17,6 +17,21 @@ You can setup [monit](https://github.com/arnaudsj/monit) for this if you do not 
 
 We are saving Registartion Contact information in a sepearate database because peer ifnormation  we obtain from *sip show peer* is not persistent.
 
+#### To store push tokens we need to create a simple database something like below. You can change database columns  their types and length as per your requirement.
+
+Our interest is mainly in 2 columns  to store SIP useraccount and device token information. Ofcourse you can store device type or any other dynamic information you fetch from contact headers as per your requirement.
+
+
+CREATE TABLE `pushdb_pushkeys` (
+  `id` int(10) NOT NULL,
+  `p_device` varchar(64) NOT NULL,
+  `p_status` int(1) DEFAULT NULL,
+  `p_type` varchar(10) DEFAULT NULL,
+  `p_info` varchar(124) NOT NULL,
+  `p_updated` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 ##### 3.[Asterisk](https://www.asterisk.org) or [Freepbx](https://www.freepbx.org) or [vitalpbx pbx](https://vitalpbx.org/en/) or [elastix pbx](https://www.elastix.org)
 
 Once we get push tokens into database , we just modify extensions asterisk configuration to send push notification if the destination extension exist in database and it has push token .
